@@ -7,7 +7,6 @@
 -- Query 4 uses a transaction and ROLLBACK to preserve
 -- the original patient records.
 
-USE hpdm206z_assessment1;
 
 -- =====================================================
 -- QUERY 1: Doctors working at a specified hospital
