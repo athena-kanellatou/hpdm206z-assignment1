@@ -196,11 +196,11 @@ transactional insertion.
 
 The executable MySQL schema is available in:
 
-`sql/schema.sql`
+[`sql/schema.sql`](../sql/schema.sql)
 
 The six required SQL operations are available in:
 
-`sql/queries.sql`
+[`sql/queries.sql`](../sql/queries.sql)
 
 These files provide the implementation corresponding to
 the conceptual design documented above.
