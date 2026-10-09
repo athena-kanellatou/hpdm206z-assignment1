@@ -172,3 +172,43 @@ The most useful part of the process was seeing how the database design affected 
 I also gained practical experience in checking the data before import, using transactions to test changes safely, and validating that a database can be reconstructed from an exported SQL file.
 
 The final implementation provides a reproducible relational database and all six SQL operations required for the assignment.
+## 10. Additional Database Verification
+
+Two additional SQL scripts are included to demonstrate
+database integrity and permanent patient insertion.
+
+### Database Validation
+
+The [`sql/validate.sql`](sql/validate.sql) script checks:
+
+- Record counts across all four tables
+- Foreign-key reference integrity
+- The four foreign-key constraints
+- Positive hospital bed capacities
+
+Run it against a freshly restored database:
+
+    mysql -u YOUR_USERNAME -p --table hospital_assignment < sql/validate.sql
+
+All checks passed against the original database:
+1,240 records, four foreign-key constraints, zero
+invalid references and zero invalid hospital sizes.
+
+### Permanent Patient Insertion
+
+The [`sql/insert_patient.sql`](sql/insert_patient.sql)
+script demonstrates a permanent patient insertion using
+a transaction followed by COMMIT.
+
+This complements Query 4 in `queries.sql`, which uses
+ROLLBACK to preserve the original dataset.
+
+I tested permanent insertion in a separate restored
+database. Patient 701 was assigned to doctor 68,
+increasing the patient count from 600 to 601.
+
+Run on a fresh test database only:
+
+    mysql -u YOUR_USERNAME -p hospital_assignment < sql/insert_patient.sql
+
+This script permanently modifies the selected database.

@@ -311,8 +311,9 @@ The queries are stored in sql/queries.sql.
 
 The ERD is stored in docs/erd.md.
 
-Database restoration will be tested independently
-before final submission.
+Database restoration was independently tested using a separate
+MySQL database, with all 1,240 records recovered and the
+six required SQL operations successfully executed.
 
 ## 9. Design Limitations and Assumptions
 
